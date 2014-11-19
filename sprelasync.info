@@ -1,0 +1,9 @@
+name = SP Relationship Sync
+description = "Synchronize CiviCRM Contacts with Relationships to a specified Drupal Role both automatically and manually."
+package = sprbs
+version = 1.0
+core = 7.x
+dependencies[] = civicrm
+; configure = admin/config/civicrm/civicrm_sprelasync
+files[] = sprelasync.module
+files[] = sprelasync.install

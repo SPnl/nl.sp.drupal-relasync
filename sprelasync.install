@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * Implementation of hook_install().
+ */
+function sprelasync_install() { }
+
+/**
+ * Implementation of hook_enable()
+ */
+function sprelasync_enable() {
+    db_query("UPDATE {system} SET weight = 110 WHERE name = 'sprelasync'");
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function sprelasync_schema() {
+    $schema['sp_relasync_rules'] = array(
+        'fields'      => array(
+            'rule_id'     => array(
+                'type' => 'serial',
+            ),
+            'rid'         => array(
+                'type'     => 'int',
+                'unsigned' => true,
+                'not null' => true,
+            ),
+            'rel_id'      => array(
+                'type'     => 'int',
+                'unsigned' => true,
+                'not null' => true,
+            ),
+            'direction'   => array(
+                'type'     => 'int',
+                'unsigned' => true,
+                'not null' => true,
+                'size'     => 'tiny',
+            ),
+            'active_only' => array(
+                'type'     => 'int',
+                'not null' => true,
+                'unsigned' => true,
+                'size'     => 'tiny',
+            ),
+        ),
+        'primary key' => array('rule_id'),
+    );
+
+    return $schema;
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function sprelasync_uninstall() {
+    variable_del('sprelasync_sync_method');
+}
+
