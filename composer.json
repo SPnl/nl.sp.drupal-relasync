@@ -1,7 +1,6 @@
 {
   "name": "SPnl/nl.sp.drupal-relasync",
   "description": "Synchronize CiviCRM Contacts with Relationships to a specified Drupal Role both automatically and manually.",
-  "version": "1.0.0",
   "type": "drupal-module",
   "authors": [
     {
